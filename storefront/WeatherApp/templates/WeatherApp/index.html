@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.2.3/slate/bootstrap.min.css" integrity="sha512-GixPbJydZH3yyD23SgcC/i/FIhLb+0F26ABBvEg9ejj90hYuXXjPphWTWTX5dIuolObna6iXz1nr5nog6Dex7w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Weather App</title>
+        <meta name="description" content="description"/>
+        <meta name="author" content="author" />
+        <meta name="keywords" content="keywords" />
+        <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css" />
+    </head>
+    <body style="background-image: url('https://www.survivingwithandroid.com/wp-content/uploads/2014/11/android_weather_app.jpg');">
+        <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+            <div class="container">
+                <a href="../" class="navbar-brand" style="color: light;">Weather App 
+                    <span style="color: gray;">
+                        - Django Framework
+                    </span>
+                </a>
+                <a href="https://openweathermap.org" class="navbar-tech">
+                    OpenWeather - Get Your API
+                </a>
+            </div>
+        </div>
+        <br /> <br /> <br>
+        <div id="jumbotron" class="jumbotron" style="text-align: center; margin-top: 0;">
+            <h1 class="display-5">Weather Desktop App</h1>
+            <h5>Using Python Language and Django Framework</h5>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="text-align: center; margin-top: 25px;">
+            <form method="POST" class="col-md">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" class="form-control" name="city" placeholder="Choose your city ...">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </form>
+        </nav>
+        <br> <br>
+        <div class="row">
+            {% if description and temp and day and city %}
+            <div class="col d-flex justify-content-center">
+                <div class=" card text-dark bg-transparent mb-6 card border-0" >
+                <div class=" card-body ">
+                    <h2><span class="badge bg-light text-primary">City</span> : <span class="badge bg-light text-primary">{{city}}</span></h2>
+                    <h2><span class="badge bg-light text-primary">Date</span> : <span class="badge bg-light text-primary">{{day}}</span></h2>
+                    <h2><span class="badge bg-light text-primary">Description</span> :  <span class="badge bg-light  text-primary">  {{description}}</span></h2>
+                    <h2><span class="badge bg-light text-primary">Temperature</span> : <span class="badge bg-light  text-primary">{{temp}}</span>
+                        <img src="https://openweathermap.org/img/w/{{icon}}.png" style="width: 70px"/>
+                    </h2>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>
