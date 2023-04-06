@@ -1,6 +1,6 @@
 1.Weather App
 
-  This is a simple weather application built using Python, Django, and a weather API. The app allows users to search for weather information of a location by making API requests to a weather API and displaying the results in a user-friendly format.
+  This is a weather application built using Python, Django, and a weather API. The app allows users to search for weather information of a location by making API requests to a weather API and displaying the results in a user-friendly format.
 
 2.Features
 
@@ -21,7 +21,7 @@
  - Installation
  
  
- 4.Open a web browser and go to http://127.0.0.1:8000 to access the Weather App.
+ 4.Open a web browser and go to http://127.0.0.1:8000/ to access the Weather App.
  
  
  5.Contribution
